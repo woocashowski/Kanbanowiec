@@ -1,0 +1,1 @@
+To run go to ./server -> node server.js
