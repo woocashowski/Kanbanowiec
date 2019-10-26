@@ -10,9 +10,9 @@ function HandleDataChange(newData)
 
 function Table() {
   return <Board editable
-    canAddLanes
   editLaneTitle
     data={data}
+
   onDataChange={HandleDataChange} 
   />
 }
