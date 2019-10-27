@@ -48,4 +48,39 @@ app.get('/table', (req,res) => {
     });
   }
 })
+app.post('/signup', (req,res) => {
+  let {email,password} = req.body;
+  if( db.CheckIfCanCreateUser(email,password) ) {
+    try {
+      db.CreateUser(email,password);
+      res.json({
+        success: true,
+        msg: "OK"
+      })
+    }
+    catch(e) {
+      res.json({
+        success: false,
+        msg: "Cannot create such user."
+      })
+    }
+  }
+  else {
+    res.json( {
+      success: false,
+      msg: "User already exists!"
+    } )
+  }
+})
+app.post('/verify', (req,res) => {
+  let {email,token} = req.body;
+  if( verify.VerifyToken(email,token)) {
+    res.json({
+      success: true
+    });
+  }
+  else {
+    res.json({success: false}).status(401);
+  }
+})
 app.listen(port);

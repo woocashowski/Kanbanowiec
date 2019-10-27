@@ -1,4 +1,17 @@
 @media all and (min-width: 480px) {
+    .LoginContainer {
+      padding: 30px;
+  margin: auto;
+  margin-top: 2%;
+  width: fit-content;
+    }
+
+    .LoginContainer h3 {
+      padding: 10px;
+  margin: auto;
+  margin-top: 2%;
+    }
+
     .Login {
       padding: 30px;
       border: solid #9b9b9b;
