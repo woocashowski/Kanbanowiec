@@ -3,13 +3,6 @@ var router = express.Router()
 const verify = require('./verify');
 const db = require('./db');
 const md5 = require('md5');
-// middleware that is specific to this router
-router.use(
-    function timeLog(req, res, next) {
-        // console.log(req);
-        console.log(CurrentTime());
-        next();
-    })
 function CurrentTime() {
     let date_ob = new Date();
     let date = ("0" + date_ob.getDate()).slice(-2);
