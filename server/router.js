@@ -60,8 +60,13 @@ router.post('/table', (req, res) => {
                     msg: "Internal error."
                 });
             }
-            else {
+            else if(table){
                 res.json(table);
+            }
+            else {
+                res.status(500).json({
+                    msg: "Internal error."
+                });
             }
         });
 
@@ -111,6 +116,7 @@ router.put('/update', (req, res) => {
     if (verify.VerifyToken(email, token)) {
         db.UpdateTable(email, table, (err) => {
             if (err) {
+                console.log(err.code);
                 res.json({ success: false }).status(500);
             }
             else {
