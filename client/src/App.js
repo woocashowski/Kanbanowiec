@@ -4,28 +4,13 @@ import TablePage from './TablePage.js';
 import { Route, Switch } from 'react-router-dom'
 import Login from './Login'
 import Signup from './Signup'
-import {Verify} from './api';
-
-function GetUser() {
-  if (window.localStorage.User) {
-    let user = JSON.parse(window.localStorage.User);
-    if (user.email !== "" && user.token !== "") {
-      return user;
-    }
-  }
-  return null;
-
-}
+import User from './user'
 
 async function IsLogged() {
-  let user = GetUser();
+  let user = User.Get();
   if (user) {
-    let resp  = await Verify(user.email, user.token);
-    if(resp.succeed) {
+    if(user.email !== "'" && user.token !== "") {
       return true;
-    }
-    else {
-      return false;
     }
   }
   return false;
@@ -41,11 +26,12 @@ async function IsLogged() {
 function App() {
   const [logged, setLogged] = React.useState(false);
 
-  function HandleSuccesfulLogin() {
+  function HandleSuccesfulLogin(data) {
+    User.Set(data.email,data.token);
     setLogged(true);
   }
   function HandleLogout() {
-    window.localStorage.setItem("User", JSON.stringify({ email: "", token: "" }));
+    User.Clear();
     setLogged(false);
   }
 

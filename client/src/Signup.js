@@ -6,7 +6,8 @@ import {
   Button
 } from "react-bootstrap";
 import "./Signup.css";
-import {TrySignUp} from './api';
+import Api from './api';
+
 export default function Signup(props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -27,7 +28,7 @@ export default function Signup(props) {
 
     setIsLoading(true);
 
-    const resp = await TrySignUp(email,password);
+    const resp = await Api.TrySignUp(email,password);
     console.log(resp);
 
     setIsLoading(false);

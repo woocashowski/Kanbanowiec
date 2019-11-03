@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import "./Login.css";
-import { TryLogin } from './api';
+import Api from './api';
 
 export default function Login(props) {
     const [email, setEmail] = useState("");
@@ -16,13 +16,12 @@ export default function Login(props) {
     async function handleSubmit(event) {
         event.preventDefault();
         setLoading(true);
-        let resp = await TryLogin(email, password);
+        let resp = await Api.TryLogin(email, password);
         console.log(resp);
         if (resp.succeed) {
             console.log(resp);
-            window.localStorage.setItem("User", JSON.stringify(resp.response.data));
             setLoading(false);
-            callback();
+            callback(resp.response.data);
         }
         else {
             console.log(resp.error.response);
