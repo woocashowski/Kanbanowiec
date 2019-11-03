@@ -58,8 +58,9 @@ export default function Login(props) {
                         {loading ? "Loading..." : "Login"}
                     </Button>
                 </form>
+                
             </div>
-            <div>
+            <div className="SignupLink">
                 <a href="/signup">Dont have an account?</a>
             </div>
         </div>

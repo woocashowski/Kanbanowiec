@@ -26,3 +26,11 @@
       max-width: 320px;
     }
   }
+
+  .SignupLink {
+    padding: 5px;
+margin: auto;
+margin-top: 0%;
+width: fit-content;
+font-size: 1.2rem;
+  }

@@ -1,6 +1,13 @@
 @media all and (min-width: 480px) {
     .Signup {
-      padding: 60px 0;
+      padding: 30px;
+  margin: auto;
+  margin-top: 2%;
+  width: fit-content;
+    }
+
+    .Signup p {
+      font-size: larger;
     }
   
     .Signup form {
