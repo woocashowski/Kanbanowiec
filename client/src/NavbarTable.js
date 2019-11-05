@@ -9,7 +9,7 @@ function NavbarTable(props) {
    const loggedInText = `Logged as: ${user}`;
     return <div>
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="">Kanbanasior</Navbar.Brand>
+        <Navbar.Brand href="">Kanbanowiec</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
