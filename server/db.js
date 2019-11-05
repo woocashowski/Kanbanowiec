@@ -1,11 +1,13 @@
 const defaultData = require('./defaultData');
 const mysql = require('mysql');
-var connection = mysql.createConnection({
+var connection = mysql.createPool({
+    connectionLimit : 10,
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     port: process.env.DB_PORT
+    
 });
 
 function GetTable(email,cb) {
