@@ -24,3 +24,8 @@ body {
 .App-link {
   color: #09d3ac;
 }
+
+.smooth-dnd-draggable-wrapper span, .smooth-dnd-container div.comPlainTextContentEditable {
+  overflow: auto;
+}
+
