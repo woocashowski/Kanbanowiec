@@ -3,6 +3,7 @@ var router = express.Router()
 const verify = require('./verify');
 const db = require('./db');
 const md5 = require('md5');
+
 function CurrentTime() {
     let date_ob = new Date();
     let date = ("0" + date_ob.getDate()).slice(-2);
@@ -70,6 +71,7 @@ router.post('/table', (req, res) => {
         });
     }
 })
+
 // signup request
 router.post('/signup', (req, res) => {
     console.log("signup request " + CurrentTime());
@@ -90,6 +92,7 @@ router.post('/signup', (req, res) => {
         }
     })
 })
+
 // verify token
 router.post('/verify', (req, res) => {
     let { email, token } = req.body;
@@ -103,11 +106,14 @@ router.post('/verify', (req, res) => {
         res.json({ success: false }).status(401);
     }
 })
+
 router.put('/update', (req, res) => {
     let { email, token, table } = req.body;
     console.log("update table request by " + email + " - " + CurrentTime());
     if (verify.VerifyToken(email, token)) {
+        console.log('działa1');
         db.UpdateTable(email, table, (err) => {
+            console.log('działa2');
             if (err) {
                 console.log(err.code);
                 res.json({ success: false }).status(500);
@@ -120,6 +126,7 @@ router.put('/update', (req, res) => {
         });
     }
     else {
+        console.log('działa3');
         res.json({ success: false }).status(401);
     }
 })

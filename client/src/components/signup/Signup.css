@@ -1,0 +1,38 @@
+@media all and (min-width: 480px) {
+  .SignupContainer {
+    padding: 30px;
+    margin: auto;
+    margin-top: 2%;
+    width: fit-content;
+  }
+
+  .Signup h3 {
+    padding: 10px;
+    margin: auto;
+    margin-top: 2%;
+  }
+
+  .Signup {
+    padding: 30px;
+    border: solid #9b9b9b;
+    border-radius: 12px;
+    margin: auto;
+    margin-top: 2%;
+    width: fit-content;
+  }
+
+  .Signup p {
+    font-size: larger;
+  }
+
+  .Signup form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+}
+
+.Signup form span.help-block {
+  font-size: 14px;
+  padding-bottom: 10px;
+  color: #999;
+}

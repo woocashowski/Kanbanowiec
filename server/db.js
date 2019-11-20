@@ -10,7 +10,7 @@ var connection = mysql.createPool({
     
 });
 
-function GetTable(email,cb) {
+function GetTable(email, cb) {
     const query = 'SELECT kanban from `Users` WHERE mail = ?;';
     connection.query(query, [email], function (error, results, fields) {
         if(error) {
@@ -27,6 +27,7 @@ function GetTable(email,cb) {
 function UpdateTable(email, table,cb) {
     const query = 'UPDATE Users SET kanban = ? WHERE mail = ?;';
     connection.query(query, [JSON.stringify(table),email], function (error, results, fields) {
+        console.log(error, results, fields);
         if(error) {
             cb(error);
         }
