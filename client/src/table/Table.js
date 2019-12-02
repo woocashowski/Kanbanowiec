@@ -1,7 +1,7 @@
 import React from 'react';
 import Board from 'react-trello'
-import Api from './api';
-import User from './user';
+import Api from './../api/api';
+import User from './../user/user';
 function Table() {
   const [data, setData] = React.useState({});
   const [loaded, setLoaded] = React.useState(false);
