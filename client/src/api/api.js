@@ -20,7 +20,9 @@ async function TryLogin(email, password) {
 }
 
 async function TrySignUp(email, password) {
-    return await Request(axios.post, 'signup', {email,password} );
+    let result = await Request(axios.post, 'signup', {email,password} );
+    result.succeed = result.response.data.success;
+    return result;
 }
 
 async function Verify(email, token) {

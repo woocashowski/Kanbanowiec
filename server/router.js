@@ -35,7 +35,8 @@ router.post('/login', (req, res) => {
         }
         else {
             res.status(401).json({
-                msg: "Wrong login data."
+                msg: "Wrong login data.",
+                success: false
             })
         }
     })
@@ -50,7 +51,8 @@ router.post('/table', (req, res) => {
             if (err) {
                 console.log(err.code);
                 res.status(500).json({
-                    msg: "Internal error."
+                    msg: "Internal error.",
+                    success: false
                 });
             }
             else if(table){
@@ -58,7 +60,8 @@ router.post('/table', (req, res) => {
             }
             else {
                 res.status(500).json({
-                    msg: "Internal error."
+                    msg: "Internal error.",
+                    success: false
                 });
             }
         });
@@ -66,7 +69,8 @@ router.post('/table', (req, res) => {
     }
     else {
         res.status(401).json({
-            msg: "Wrong token!"
+            msg: "Wrong token!",
+            success: false
         });
     }
 })

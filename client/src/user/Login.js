@@ -24,10 +24,15 @@ export default function Login(props) {
             callback(resp.response.data);
         }
         else {
-            console.log(resp.error.response);
-            console.log(resp.error.message);
             setLoading(false);
-            alert(resp.error.message); //+(resp.error.response) ? (' \n Status: ' + resp.error.response) : (''));
+            if(resp.error) {
+                alert(resp.error.message);
+            }
+                
+            else {
+                alert("Unknown error, please contact nearest exorcist!");
+            }
+                
         }
     }
 

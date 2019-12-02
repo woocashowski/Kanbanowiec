@@ -9,10 +9,10 @@ import "./Signup.css";
 import Api from './../api/api';
 
 export default function Signup(props) {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
-    const [signed, setSigned] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [signed, setSigned] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   function validateForm() {
@@ -28,24 +28,28 @@ export default function Signup(props) {
 
     setIsLoading(true);
 
-    const resp = await Api.TrySignUp(email,password);
+    const resp = await Api.TrySignUp(email, password);
     console.log(resp);
-
+    if (resp.succeed) {
+      setSigned(true);
+    }
+    else {
+      alert("Username is taken!");
+    }
     setIsLoading(false);
-    setSigned(true);
   }
   function renderSuccessfulSignup() {
     return (
-        <div>
-            <p>You successfully created your account!</p>
-            <form action="/">
-            <Button block bsSize="large" type="submit" >
-                Go back to login page
+      <div>
+        <p>You successfully created your account!</p>
+        <form action="/">
+          <Button block bsSize="large" type="submit" >
+            Go back to login page
             </Button>
-            </form>
-        </div>
+        </form>
+      </div>
     );
-}
+  }
 
   function renderForm() {
     return (
@@ -78,11 +82,9 @@ export default function Signup(props) {
         <Button
           block
           type="submit"
-          bsSize="large"         
-          isLoading={isLoading}
           disabled={!validateForm()}
         >
-          Signup
+          {isLoading ? "Fetching..." : "Signup"}
         </Button>
       </form>
     );
