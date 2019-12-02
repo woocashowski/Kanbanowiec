@@ -1,6 +1,6 @@
 import React from 'react';
 import Table from './Table.js';
-import NavbarTable from './NavbarTable.js';
+import NavbarTable from './../navbar/NavbarTable.js';
 
 function TablePage(props) {
   return <div>

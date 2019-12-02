@@ -6,7 +6,7 @@ import {
   Button
 } from "react-bootstrap";
 import "./Signup.css";
-import Api from './api';
+import Api from './../api/api';
 
 export default function Signup(props) {
     const [email, setEmail] = useState("");
