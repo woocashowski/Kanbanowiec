@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 import TablePage from './table/TablePage.js';
-import { Route, Switch } from 'react-router-dom'
-import Login from './user/Login'
-import Signup from './user/Signup'
-import User from './user/user'
+import { Route, Switch } from 'react-router-dom';
+import Login from './user/Login';
+import Signup from './user/Signup';
+import User from './user/user';
 
 async function IsLogged() {
   let user = User.Get();
@@ -15,14 +15,6 @@ async function IsLogged() {
   }
   return false;
 }
-
-// function requireAuth(nextState, replace) {
-//   if (!loggedIn()) {
-//     replace({
-//       pathname: '/login'
-//     })
-//   }
-// }
 function App() {
   const [logged, setLogged] = React.useState(false);
 
@@ -50,7 +42,7 @@ function App() {
         render={() => (logged ? <TablePage logout={HandleLogout} /> : <Login callback={HandleSuccesfulLogin} />)}
       />
       <Route
-        path='./user/signup'
+        path='/signup'
         render={() => (logged ? <div>WTF Wynoś się</div> : <Signup />)}
       />
     </Switch>
