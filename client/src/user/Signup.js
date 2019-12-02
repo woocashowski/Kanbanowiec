@@ -5,8 +5,9 @@ import {
   FormLabel,
   Button
 } from "react-bootstrap";
-import "./Signup.css";
+import "./Login.css";
 import Api from './../api/api';
+import "./Signup.css"
 
 export default function Signup(props) {
   const [email, setEmail] = useState("");
@@ -53,40 +54,45 @@ export default function Signup(props) {
 
   function renderForm() {
     return (
-      <form onSubmit={handleSubmit}>
-        <FormGroup controlId="email" bsSize="large">
-          <FormLabel>Email</FormLabel>
-          <FormControl
-            autoFocus
-            type="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-          />
-        </FormGroup>
-        <FormGroup controlId="password" bsSize="large">
-          <FormLabel>Password</FormLabel>
-          <FormControl
-            type="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-          />
-        </FormGroup>
-        <FormGroup controlId="confirmPassword" bsSize="large">
-          <FormLabel>Confirm Password</FormLabel>
-          <FormControl
-            type="password"
-            onChange={e => setConfirmPassword(e.target.value)}
-            value={confirmPassword}
-          />
-        </FormGroup>
-        <Button
-          block
-          type="submit"
-          disabled={!validateForm()}
-        >
-          {isLoading ? "Fetching..." : "Signup"}
-        </Button>
-      </form>
+      <div className="LoginContainer">
+        <h3>Sign in to Kanabanowiec</h3>
+        <div className="Login">
+          <form onSubmit={handleSubmit}>
+            <FormGroup controlId="email" bsSize="large">
+              <FormLabel>Email</FormLabel>
+              <FormControl
+                autoFocus
+                type="email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+              />
+            </FormGroup>
+            <FormGroup controlId="password" bsSize="large">
+              <FormLabel>Password</FormLabel>
+              <FormControl
+                type="password"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+              />
+            </FormGroup>
+            <FormGroup controlId="confirmPassword" bsSize="large">
+              <FormLabel>Confirm Password</FormLabel>
+              <FormControl
+                type="password"
+                onChange={e => setConfirmPassword(e.target.value)}
+                value={confirmPassword}
+              />
+            </FormGroup>
+            <Button
+              block
+              type="submit"
+              disabled={!validateForm()}
+            >
+              {isLoading ? "Fetching..." : "Signup"}
+            </Button>
+          </form>
+        </div>
+      </div>
     );
   }
 
